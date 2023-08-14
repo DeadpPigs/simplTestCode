@@ -1,0 +1,41 @@
+server:
+  port: 8787
+  error:
+    path: /error
+spring:
+  application:
+    name: dead pigs
+  graphql:
+    cors:
+      allowed-headers: '*'
+      allowed-methods: '*'
+      allowed-origins: '*'
+      max-age: 3600
+  profiles:
+    active: test
+knife4j:
+  enable: true
+  openapi:
+    title: deadPigs的测试文档
+    description: 测试文档
+    email: 476148585@qq.com
+    concat: deadPigs
+    url: https://docs.pigs.com
+    version: v1.0
+    license: pigs 1.0
+    license-url: https://docs.pigs.com
+    terms-of-service-url: https://docs.pigs.com
+    group:
+      test1:
+        group-name: manager
+        api-rule: package
+        api-rule-resources:
+          - com.pig.dead
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: assign_id
+      logic-delete-field: logicRemove
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+  mapper-locations: classpath:/com/pig/dead/mapper/**/*.xml
